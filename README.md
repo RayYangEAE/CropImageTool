@@ -3,6 +3,7 @@ Crop Image(s) Tool
 I create this project because I am dealing with cropping a huge amount of image(s) in the database. Hope it also can help others.
 
 How to use:
+
 1. Click "..." button to select a path to store the cropped image(s);
 
 2. Click "Select Image" button to select a single image to deal with; 
