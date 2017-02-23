@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{EA163F34-596D-5548-9F8C-29435D865275}</ProjectGuid>
+    <ProjectGuid>{0683C807-BA65-E44F-EE85-0DD7FE6E452B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -46,11 +46,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\FileBrowser\Script\FileBrowser.cs" />
-     <Compile Include="Assets\FileBrowser\Script\testFileBrowser.cs" />
      <Compile Include="Assets\LoadImageAndCrop.cs" />
      <Compile Include="Assets\RenderImage.cs" />
-     <None Include="Assets\FileBrowser\readme.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
