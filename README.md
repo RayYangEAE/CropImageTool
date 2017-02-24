@@ -1,4 +1,4 @@
-Crop Image(s) Tool
+Crop Image(s) Tool https://youtu.be/YD1xisfPYx8
 
 I create this project because I am dealing with cropping a huge amount of image(s) in the database. Hope it also can help others.
 
