@@ -36,6 +36,8 @@ public class LoadImageAndCrop : MonoBehaviour {
 	bool UsePercent = true;
 	float slctWidth;
 	float slctHeight;
+	float firstImgW =1;
+	float firstImgH =1;
 
 	void Start () {
 		loadPath =  new string[1];
@@ -51,9 +53,15 @@ public class LoadImageAndCrop : MonoBehaviour {
 			"png,jpg,jpeg,jpe,jfif,tif,tiff,gif,bmp,dib,tga");
 		if (imgPath.Length != 0) {
 			loadPath [0] = imgPath;
-			WWW www = new WWW("file:///" + loadPath[0]);
-			imgObj.GetComponent<RawImage> ().texture = www.texture;
+			renderImg ();
 		}	
+	}
+
+	void renderImg(){
+		WWW www = new WWW("file:///" + loadPath[0]);
+		imgObj.GetComponent<RawImage> ().texture = www.texture;
+		firstImgW = www.texture.width;
+		firstImgH = www.texture.height;
 	}
 
 	public void LoadFolder(){
@@ -70,9 +78,7 @@ public class LoadImageAndCrop : MonoBehaviour {
 				Debug.Log ("Directory Not Found: "+dirEx.Message);
 			}
 			if (loadPath.Length > 0){
-				WWW www = new WWW("file:///" + loadPath[0]);
-				imgObj.GetComponent<RawImage> ().texture = www.texture;
-				//Debug.Log (loadPath[0]);
+				renderImg ();
 			} else{
 				imgPath="";
 				EditorUtility.DisplayDialog(
@@ -219,7 +225,7 @@ public class LoadImageAndCrop : MonoBehaviour {
 		if (UsePercent) {
 			imgSlctArea.GetComponent<RectTransform> ().sizeDelta = new Vector2 ((PercentMaxX - PercentMinX) * slctWidth/100, (PercentMaxY - PercentMinY) * slctHeight/100);
 		} else {
-			imgSlctArea.GetComponent<RectTransform> ().sizeDelta = new Vector2 (Mathf.Min(slctWidth*(100-PercentMinX)/100,LengthX), Mathf.Min(slctHeight*(100-PercentMinY)/100,LengthY));
+			imgSlctArea.GetComponent<RectTransform> ().sizeDelta = new Vector2 (Mathf.Min(slctWidth*(100-PercentMinX)/100,LengthX*slctWidth/firstImgW), Mathf.Min(slctHeight*(100-PercentMinY)/100,LengthY*slctHeight/firstImgH));
 		}
 	}
 		
